@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - AI Career Predictor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-custom shadow-sm">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">Career AI</a>
+        <div class="d-flex align-items-center">
+            <a href="profile.html" class="btn btn-outline-dark btn-sm me-2">
+                <i class="fas fa-user-circle me-1"></i> My Profile
+            </a>
+            <button onclick="logout()" class="btn btn-danger btn-sm">Logout</button>
+        </div>
+    </div>
+</nav>
+
+<div class="main-wrapper">
+    <div class="container py-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card p-4 shadow">
+                    <h3 class="text-center mb-4 fw-bold">Discover Your Path</h3>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold small">Skills</label>
+                            <input id="skills" class="form-control" placeholder="e.g. Java, Design, Writing">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold small">Education</label>
+                            <input id="education" class="form-control" placeholder="e.g. B.Tech CS">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold small">Interests</label>
+                            <input id="interests" class="form-control" placeholder="e.g. AI, Music, Gaming">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-bold small">Experience</label>
+                            <input id="experience" class="form-control" placeholder="e.g. 2 years in Web Dev">
+                        </div>
+                    </div>
+                    <button onclick="predict()" class="btn btn-success w-100 mt-4 py-2 fw-bold">
+                        <i class="fas fa-magic me-2"></i>Generate Career Roadmaps
+                    </button>
+                </div>
+
+                <div id="loading" class="text-center mt-5 d-none">
+                    <div class="spinner-border text-primary" role="status"></div>
+                    <p class="mt-2 text-white fw-bold">AI is analyzing your profile...</p>
+                </div>
+
+                <div id="results" class="row mt-5 justify-content-center">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="roadmapModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content" style="border-radius: 20px; border: none; overflow: hidden;">
+            <div class="modal-header border-0 p-4 pb-0">
+                <h3 class="modal-title fw-bold" id="modalJobTitle">Career Path</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4">
+                <p id="modalDescText" class="text-muted mb-4"></p>
+                <h5 class="fw-bold mb-3"><i class="fas fa-map-signs me-2 text-primary"></i>Step-by-Step Roadmap</h5>
+                <div id="roadmapSteps">
+                    </div>
+            </div>
+            <div class="modal-footer border-0 p-4 pt-0">
+                <button type="button" class="btn btn-outline-dark fw-bold" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success fw-bold px-4" onclick="openQuiz()">
+                    <i class="fas fa-vial me-2"></i>Take Skills Quiz
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="quizModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content" style="border-radius: 20px; border: none;">
+            <div class="modal-header border-0 p-4 pb-0">
+                <h3 class="modal-title fw-bold">Career Assessment</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4" id="quizContainer">
+                </div>
+            <div class="modal-footer border-0 p-4 pt-0 d-none" id="quizFooter">
+                <button type="button" class="btn btn-outline-dark fw-bold" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary fw-bold px-4" onclick="submitQuiz()">Submit Answers</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/api.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

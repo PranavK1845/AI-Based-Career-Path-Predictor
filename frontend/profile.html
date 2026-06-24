@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - AI Career Predictor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <nav class="navbar navbar-custom p-3 shadow-sm">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">Career Predictor</a>
+        <button onclick="logout()" class="btn btn-danger btn-sm">Logout</button>
+    </div>
+</nav>
+
+    <div class="container mt-5">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card p-4 shadow-sm text-center">
+                    <div class="profile-avatar" id="userInitial">?</div>
+                    <h4 class="mb-1 fw-bold" id="userName">Loading Name...</h4>
+                    <p id="userEducation" class="text-primary small mb-1">Loading Education...</p>
+                    <p id="userEmail" class="text-muted extra-small">Loading email...</p>
+                    <hr>
+                    <div class="text-start mb-4">
+                        <small class="text-uppercase fw-bold text-muted extra-small">Account Actions</small>
+                        <button id="clearBtn" class="btn btn-outline-danger btn-sm w-100 mt-2">
+                            <i class="fas fa-trash-alt me-1"></i> Clear History
+                        </button>
+                    </div>
+                    <a href="index.html" class="btn btn-primary w-100">Back to Predictor</a>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div class="card p-4 shadow-sm">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="mb-0">Past Career Predictions</h4>
+                        <span class="badge bg-secondary">Saved Roadmaps</span>
+                    </div>
+                    <div id="historyList" class="row mt-2">
+                        <div class="text-center py-5">
+                            <div class="spinner-border text-primary mb-2" role="status"></div>
+                            <p class="text-muted mb-0"><em>Loading your history...</em></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>
